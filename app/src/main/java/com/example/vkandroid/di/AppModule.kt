@@ -1,6 +1,7 @@
 package com.example.vkandroid.di
 
 import android.app.Application
+import com.example.vkandroid.api.ApiService
 import com.example.vkandroid.data.Repository
 import com.example.vkandroid.data.RepositoryImpl
 import dagger.Module
@@ -16,10 +17,12 @@ object AppModule {
     @Provides
     @Singleton
     fun provideMainRepository(
-        app: Application
+        application: Application,
+        apiService: ApiService
     ): Repository {
         return RepositoryImpl(
-            appContext = app
+            application = application,
+            apiService = apiService
         )
     }
 }

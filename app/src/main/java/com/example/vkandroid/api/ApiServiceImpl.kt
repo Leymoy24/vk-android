@@ -21,11 +21,7 @@ class ApiServiceImpl(
 
             return when(response.status.value){
                 in 200..299 -> {
-                    ApiResult.Success(response.body<List<ProductSerializable>>().map { it.convertToUIModel() })
-                }
-
-                422 -> {
-                    ApiResult.Error("Error 422: Validation Error!")
+                    ApiResult.Success(response.body<ListOfProductsSerializable>().products.map { it.convertToUIModel() })
                 }
 
                 else -> {
