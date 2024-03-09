@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.vkandroid.api.ApiService
 import com.example.vkandroid.data.Repository
 import com.example.vkandroid.data.RepositoryImpl
+import com.example.vkandroid.data.SessionStorage
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,11 +19,19 @@ object AppModule {
     @Singleton
     fun provideMainRepository(
         application: Application,
-        apiService: ApiService
+        apiService: ApiService,
+        sessionStorage: SessionStorage
     ): Repository {
         return RepositoryImpl(
             application = application,
-            apiService = apiService
+            apiService = apiService,
+            sessionStorage = sessionStorage
         )
+    }
+
+    @Provides
+    @Singleton
+    fun provideSessionStorage(): SessionStorage {
+        return SessionStorage()
     }
 }

@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
 import com.example.vkandroid.navigation.Navigation
-import com.example.vkandroid.ui.theme.VKAndroidTheme
+import com.example.vkandroid.ui.screens.theme.VKAndroidTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

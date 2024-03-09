@@ -1,4 +1,4 @@
-package com.example.vkandroid.ui.theme.screens.main
+package com.example.vkandroid.ui.screens.main
 
 sealed interface MainScreenUiState{
     data object Initial: MainScreenUiState

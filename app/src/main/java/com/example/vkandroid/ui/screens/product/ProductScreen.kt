@@ -1,5 +1,6 @@
-package com.example.vkandroid.ui.theme.screens.product
+package com.example.vkandroid.ui.screens.theme.screens.product
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -17,6 +18,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -27,18 +29,29 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import coil.compose.SubcomposeAsyncImage
+import com.example.vkandroid.Constants
 import com.example.vkandroid.ProductUIModel
 import com.example.vkandroid.R
-import com.example.vkandroid.ui.theme.Green
+import com.example.vkandroid.ui.screens.theme.Green
 
 @Composable
-fun ProductScreen(product: ProductUIModel) {
+fun ProductScreen(
+    navController: NavController,
+    viewModel: ProductScreenViewModel = hiltViewModel()
+) {
+    val product: ProductUIModel = viewModel.getCurrentProduct() ?: Constants.errorProduct
+
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .fillMaxSize()
+            .background(color = MaterialTheme.colorScheme.background),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Column(
@@ -81,14 +94,18 @@ fun ProductScreen(product: ProductUIModel) {
             ) {
                 Text(
                     text = product.title,
-                    modifier = Modifier.padding(horizontal = 16.dp),
+                    modifier = Modifier
+                        .padding(start = 16.dp)
+                        .fillMaxWidth(0.6f),
                     fontSize = 30.sp,
-                    fontWeight = FontWeight.Medium
+                    fontWeight = FontWeight.Medium,
+                    overflow = TextOverflow.Ellipsis,
+                    color = MaterialTheme.colorScheme.primary
                 )
                 Row(
                     modifier = Modifier
-                        .fillMaxHeight()
-                        .width(120.dp)
+                        .fillMaxSize(),
+                    horizontalArrangement = Arrangement.End
                 ) {
                     Icon(
                         painter = painterResource(id = R.drawable.star_icon),
@@ -99,8 +116,9 @@ fun ProductScreen(product: ProductUIModel) {
 
                     Text(
                         text = product.rating.toString(),
-                        modifier = Modifier.padding(horizontal = 8.dp),
-                        fontSize = 30.sp
+                        modifier = Modifier.padding(start = 8.dp, end = 16.dp),
+                        fontSize = 30.sp,
+                        color = MaterialTheme.colorScheme.primary
                     )
                 }
             }
@@ -123,7 +141,8 @@ fun ProductScreen(product: ProductUIModel) {
                     text = product.brand,
                     modifier = Modifier.padding(horizontal = 16.dp),
                     fontSize = 16.sp,
-                    color = Color.Black
+                    textAlign = TextAlign.Center,
+                    color = MaterialTheme.colorScheme.primary
                 )
             }
 
@@ -140,7 +159,8 @@ fun ProductScreen(product: ProductUIModel) {
                     modifier = Modifier.padding(horizontal = 16.dp),
                     fontSize = 36.sp,
                     fontWeight = FontWeight.Medium,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
+                    color = MaterialTheme.colorScheme.primary
                 )
                 Text(
                     text = "${product.discountPercentage}% OFF",
@@ -154,7 +174,8 @@ fun ProductScreen(product: ProductUIModel) {
             Text(
                 text = product.description,
                 modifier = Modifier.padding(vertical = 8.dp, horizontal = 16.dp),
-                fontSize = 16.sp
+                fontSize = 16.sp,
+                color = MaterialTheme.colorScheme.primary
             )
 
             Text(
@@ -162,33 +183,8 @@ fun ProductScreen(product: ProductUIModel) {
                 modifier = Modifier.padding(vertical = 8.dp, horizontal = 16.dp),
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Medium,
+                color = MaterialTheme.colorScheme.primary
             )
         }
     }
-}
-
-@Preview
-@Composable
-fun ProductScreenPreview() {
-    val sampleProduct = ProductUIModel(
-        id = 1,
-        title = "iPhone 9",
-        description = "An apple mobile which is nothing like apple",
-        price = 549,
-        discountPercentage = 12.96f,
-        rating = 4.69f,
-        stock = 94,
-        brand = "Apple",
-        category = "smartphones",
-        thumbnail = "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
-        images = listOf(
-            "https://cdn.dummyjson.com/product-images/1/1.jpg",
-            "https://cdn.dummyjson.com/product-images/1/2.jpg",
-            "https://cdn.dummyjson.com/product-images/1/3.jpg",
-            "https://cdn.dummyjson.com/product-images/1/4.jpg",
-            "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
-        )
-    )
-
-    ProductScreen(product = sampleProduct)
 }

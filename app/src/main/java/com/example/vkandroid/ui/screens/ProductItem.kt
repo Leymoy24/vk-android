@@ -1,7 +1,8 @@
-package com.example.vkandroid.ui.theme.screens
+package com.example.vkandroid.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -37,7 +38,8 @@ import com.example.vkandroid.R
 
 @Composable
 fun ProductItem(
-    productUIModel: ProductUIModel
+    productUIModel: ProductUIModel,
+    onClick: () -> Unit
 ) {
     Surface(
         modifier = Modifier
@@ -49,7 +51,10 @@ fun ProductItem(
                 color = Color.Gray.copy(alpha = 0.2f),
                 shape = RoundedCornerShape(30.dp)
             )
-            .shadow(elevation = 10.dp),
+            .shadow(elevation = 10.dp)
+            .clickable {
+                onClick()
+            }
     ) {
         Column() {
             Box(
@@ -114,7 +119,6 @@ fun ProductItem(
                             modifier = Modifier.padding(start = 5.dp)
                         )
                     }
-
                 }
             }
         }
