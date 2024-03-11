@@ -1,12 +1,10 @@
 package com.example.vkandroid.data
 
-import android.app.Application
 import com.example.vkandroid.ProductUIModel
 import com.example.vkandroid.api.ApiResult
 import com.example.vkandroid.api.ApiService
 
 class RepositoryImpl(
-    application: Application,
     private val apiService: ApiService,
     private val sessionStorage: SessionStorage
 ): Repository {
@@ -14,12 +12,20 @@ class RepositoryImpl(
         return apiService.getProducts()
     }
 
-    override suspend fun getProducts(skip: Int): ApiResult<List<ProductUIModel>> {
-        return apiService.getProducts(skip)
+    override suspend fun getProducts(skip: Int, category: String?): ApiResult<List<ProductUIModel>> {
+        return apiService.getProducts(skip = skip, category = category)
     }
 
     override suspend fun getProducts(query: String): ApiResult<List<ProductUIModel>> {
-        return apiService.getProducts(query)
+        return apiService.getProducts(query = query)
+    }
+
+    override suspend fun getCategories(): ApiResult<List<String>> {
+        return apiService.getCategories()
+    }
+
+    override suspend fun getProductsByCategory(category: String): ApiResult<List<ProductUIModel>> {
+        return apiService.getProductsByCategory(category = category)
     }
 
     override fun getCurrentProduct(): ProductUIModel? {

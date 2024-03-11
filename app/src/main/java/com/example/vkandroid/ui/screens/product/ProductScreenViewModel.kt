@@ -1,4 +1,4 @@
-package com.example.vkandroid.ui.screens.theme.screens.product
+package com.example.vkandroid.ui.screens.product
 
 import androidx.lifecycle.ViewModel
 import com.example.vkandroid.ProductUIModel

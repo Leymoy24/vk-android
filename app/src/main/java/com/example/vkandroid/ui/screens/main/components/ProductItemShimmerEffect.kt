@@ -35,7 +35,7 @@ fun ProductItemShimmerEffect() {
                 shape = RoundedCornerShape(30.dp)
             )
             .shadow(elevation = 10.dp)
-            .shimmerEffect(toShow = true),
+            .shimmerEffect(),
     ) {
         Column() {
             Box(
@@ -48,7 +48,7 @@ fun ProductItemShimmerEffect() {
                         color = Color.Gray.copy(alpha = 0.2f),
                         shape = RoundedCornerShape(30.dp)
                     )
-                    .shimmerEffect(true),
+                    .shimmerEffect(),
                 contentAlignment = Alignment.Center
             ) {
 
@@ -60,25 +60,22 @@ fun ProductItemShimmerEffect() {
                     .fillMaxWidth(0.5f)
                     .height(30.dp)
                     .padding(top = 10.dp)
-//                    .background(color = Color.Gray)
                     .clip(RoundedCornerShape(30.dp))
-                    .shimmerEffect(true)
+                    .shimmerEffect()
                 )
                 Box(modifier = Modifier
                     .fillMaxWidth(0.5f)
                     .height(30.dp)
                     .padding(top = 10.dp)
-//                    .background(color = Color.Gray)
                     .clip(RoundedCornerShape(30.dp))
-                    .shimmerEffect(true)
+                    .shimmerEffect()
                 )
                 Box(modifier = Modifier
                     .fillMaxWidth(1f)
                     .height(30.dp)
                     .padding(top = 10.dp)
-//                    .background(color = Color.Gray)
                     .clip(RoundedCornerShape(30.dp))
-                    .shimmerEffect(true)
+                    .shimmerEffect()
                 )
             }
         }

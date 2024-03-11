@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">VK Android</string>
+    <string name="chip_all">Все</string>
 </resources>

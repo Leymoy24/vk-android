@@ -25,7 +25,7 @@ fun EndlessGrid(
     onReachedBottom: () -> Unit = {},
     onProductClicked: (product: ProductUIModel) -> Unit = {}
 ){
-    val buffer = 1 // load more when scroll reaches last n item, where n >= 1
+    val buffer = 1
 
     val reachedBottom: Boolean by remember {
         derivedStateOf {
@@ -34,7 +34,6 @@ fun EndlessGrid(
         }
     }
 
-    // load more if scrolled to bottom
     LaunchedEffect(reachedBottom) {
         if(reachedBottom) onReachedBottom()
     }
@@ -48,7 +47,7 @@ fun EndlessGrid(
         modifier = modifier
     ) {
         if(isLoading){
-            items(count = 6){
+            items(count = 10){
                 ProductItemShimmerEffect()
             }
         }

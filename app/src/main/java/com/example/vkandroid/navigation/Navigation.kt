@@ -5,7 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.vkandroid.ui.screens.main.MainScreen
-import com.example.vkandroid.ui.screens.theme.screens.product.ProductScreen
+import com.example.vkandroid.ui.screens.product.ProductScreen
 
 @Composable
 fun Navigation(

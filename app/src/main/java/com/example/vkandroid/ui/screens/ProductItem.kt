@@ -101,7 +101,7 @@ fun ProductItem(
                 ) {
                     Text(
                         text = "${productUIModel.discountPercentage.toInt()}% OFF",
-                        color = Green,
+                        color = com.example.vkandroid.ui.screens.theme.Green,
                         fontWeight = FontWeight.Bold,
                         fontSize = 14.sp
                     )
