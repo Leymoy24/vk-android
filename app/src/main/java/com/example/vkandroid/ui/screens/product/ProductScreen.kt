@@ -45,7 +45,7 @@ import coil.compose.SubcomposeAsyncImage
 import com.example.vkandroid.Constants
 import com.example.vkandroid.ProductUIModel
 import com.example.vkandroid.R
-import com.example.vkandroid.ui.screens.theme.Green
+import com.example.vkandroid.ui.theme.Green
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

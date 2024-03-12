@@ -24,7 +24,7 @@ fun EndlessGrid(
     modifier: Modifier = Modifier,
     onReachedBottom: () -> Unit = {},
     onProductClicked: (product: ProductUIModel) -> Unit = {}
-){
+) {
     val buffer = 1
 
     val reachedBottom: Boolean by remember {
@@ -35,7 +35,7 @@ fun EndlessGrid(
     }
 
     LaunchedEffect(reachedBottom) {
-        if(reachedBottom) onReachedBottom()
+        if (reachedBottom) onReachedBottom()
     }
 
     LazyVerticalGrid(
@@ -46,19 +46,18 @@ fun EndlessGrid(
         verticalArrangement = Arrangement.spacedBy(10.dp),
         modifier = modifier
     ) {
-        if(isLoading){
-            items(count = 10){
+        if (isLoading) {
+            items(count = 10) {
                 ProductItemShimmerEffect()
             }
-        }
-        else{
+        } else {
             itemsIndexed(
                 items = listOfProducts ?: listOf(),
                 key = { _: Int, item: ProductUIModel ->
                     item.hashCode()
                 }
             ) { _, item ->
-                ProductItem(productUIModel = item){
+                ProductItem(productUIModel = item) {
                     onProductClicked(item)
                 }
             }

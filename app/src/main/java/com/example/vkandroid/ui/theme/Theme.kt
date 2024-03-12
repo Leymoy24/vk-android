@@ -1,7 +1,6 @@
-package com.example.vkandroid.ui.screens.theme
+package com.example.vkandroid.ui.theme
 
 import android.app.Activity
-import androidx.compose.ui.graphics.Color
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

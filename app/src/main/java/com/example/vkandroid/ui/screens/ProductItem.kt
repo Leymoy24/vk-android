@@ -25,7 +25,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion.Green
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -101,7 +100,7 @@ fun ProductItem(
                 ) {
                     Text(
                         text = "${productUIModel.discountPercentage.toInt()}% OFF",
-                        color = com.example.vkandroid.ui.screens.theme.Green,
+                        color = com.example.vkandroid.ui.theme.Green,
                         fontWeight = FontWeight.Bold,
                         fontSize = 14.sp
                     )

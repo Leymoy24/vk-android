@@ -42,7 +42,7 @@ import com.example.vkandroid.ProductUIModel
 import com.example.vkandroid.navigation.Screen
 import com.example.vkandroid.ui.screens.main.components.CategoriesLazyRow
 import com.example.vkandroid.ui.screens.main.components.EndlessGrid
-import com.example.vkandroid.ui.screens.theme.Green
+import com.example.vkandroid.ui.theme.Green
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)

@@ -19,7 +19,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.vkandroid.ui.screens.theme.VKAndroidTheme
+import com.example.vkandroid.ui.theme.VKAndroidTheme
 import com.example.vkandroid.utils.shimmerEffect
 
 @Composable
