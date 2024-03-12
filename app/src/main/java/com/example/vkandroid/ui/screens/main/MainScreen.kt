@@ -183,7 +183,7 @@ fun MainScreen(
                         }
                     },
                     placeholder = {
-                        Text(text = "Enter a product..")
+                        Text(text = "Введите название товара..")
                     },
                     colors = SearchBarDefaults.colors(
                         containerColor = MaterialTheme.colorScheme.background
